@@ -25,10 +25,6 @@ int main() {
     cin >> score[i];
   }
 
-  if (n == 1) {
-    cout << score[0] << endl;
-    return 0;
-  }
 
   // 초기값 설정
   dp[0] = score[0];
