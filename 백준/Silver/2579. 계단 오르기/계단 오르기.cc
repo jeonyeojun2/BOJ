@@ -18,8 +18,8 @@ int main() {
   int n;
   cin >> n;
 
-  int score[301] = {0};  // 계단 점수 저장
-  int dp[301] = {0};     // dp[i] = i번째 계단까지의 최대 점수
+  int score[301]; // 계단 점수 저장
+  int dp[301];   // dp[i] = i번째 계단까지의 최대 점수
 
   for (int i = 0; i < n; i++) {
     cin >> score[i];
