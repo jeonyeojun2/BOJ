@@ -1,4 +1,4 @@
-// 1260
+// 10809
 #include <algorithm>
 #include <cmath>
 #include <cstring>
@@ -20,12 +20,12 @@ int main() {
   cin >> S;
 
   int arr[26];
-  fill(arr, arr + 26, -1);
+  fill(arr, arr + 26, -1); // 모든 원소 -1로 초기화
 
   int count = 0;
   for (char s : S) {
     if (arr[s - 'a'] == -1) {
-      arr[int(s - 'a')] = count;
+      arr[s - 'a'] = count;
     }
     count++;
   }
