@@ -29,6 +29,6 @@ int main() {
     int room = (N - 1) / H + 1;   // 호수
 
     // 방 번호 출력 (YYXX 형식, XX는 두 자리)
-    cout << floor << setfill('0') << setw(2) << room << endl;
+    cout << floor << setfill('0') << setw(2) << room << "\n";
   }
 }
