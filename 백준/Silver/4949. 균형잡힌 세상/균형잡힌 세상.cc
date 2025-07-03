@@ -1,44 +1,54 @@
+// 4949
+#include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iomanip>
 #include <iostream>
+#include <map>
+#include <queue>
+#include <set>
+#include <sstream>
 #include <stack>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
 
-    string line;
+  string line;
 
-    while (true) {
-        getline(cin, line);
-        if (line == ".") break; // 종료 조건
+  while (1) {
+    getline(cin, line);
 
-        stack<char> s;
-        bool balanced = true;
+    if (line == ".") return 0;
 
-        for (char ch : line) {
-            if (ch == '(' || ch == '[') {
-                s.push(ch);
-            } else if (ch == ')') {
-                if (s.empty() || s.top() != '(') {
-                    balanced = false;
-                    break;
-                }
-                s.pop();
-            } else if (ch == ']') {
-                if (s.empty() || s.top() != '[') {
-                    balanced = false;
-                    break;
-                }
-                s.pop();
-            }
+    stack<char> s;
+    bool balanced = true;
+
+    for (char ch : line) {
+      if (ch == '(' || ch == '[')
+        s.push(ch);
+      else if (ch == ')') {
+        if (s.empty() || s.top() != '(') {
+          balanced = false;
+          break;
         }
-
-        // 괄호가 남아있어도 불균형
-        if (!s.empty()) balanced = false;
-
-        cout << (balanced ? "yes" : "no") << '\n';
+        s.pop();
+      } else if (ch == ']') {
+        if (s.empty() || s.top() != '[') {
+          balanced = false;
+          break;
+        }
+        s.pop();
+      }
     }
 
-    return 0;
+    if (!s.empty()) balanced = false;
+
+    cout << (balanced ? "yes" : "no") << "\n";
+  }
 }
