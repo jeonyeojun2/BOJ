@@ -1,5 +1,5 @@
 // 5525
-// string
+// string + 슬라이딩 윈도우
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -22,24 +22,27 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int N, M, result = 0;
+  int N, M;
   string S;
 
   cin >> N >> M;
   cin >> S;
 
-  int k = 2 * N + 1;
+  int result = 0;
+  int count = 0;
 
-  string P;
-  for (int i = 0; i < k; i++) {
-    if (i % 2 == 0)
-      P.push_back('I');
-    else if (i % 2 == 1)
-      P.push_back('O');
-  }
-
-  for (int i = 0; i < S.size() - 2; i++) {
-    if (S.find(P, i) == i) result++;
+  for (int i = 1; i < M - 1;) {
+    if (S[i - 1] == 'I' && S[i] == 'O' && S[i + 1] == 'I') {
+      count++;
+      if (count == N) {
+        result++;
+        count--;
+      }
+      i += 2;
+    } else {
+      count = 0;
+      i++;
+    }
   }
 
   cout << result;
