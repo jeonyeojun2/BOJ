@@ -18,6 +18,7 @@
 #include <vector>
 using namespace std;
 
+// 끝나는 시간을 기준으로 정렬, 같으면 시작시간이 빠른 순
 bool compare(const pair<int, int>& a, const pair<int, int>& b) {
   if (a.second == b.second) return a.first < b.first;
   return a.second < b.second;
@@ -27,23 +28,23 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int N, result=0;
+  int N, result = 0;
   cin >> N;
 
-  vector<pair<int, int>> v;
+  vector<pair<int, int>> meetings; // (시작시간, 끝나는시간)
 
   for (int i = 0; i < N; i++) {
     int a, b;
     cin >> a >> b;
-    v.push_back({a, b});
+    meetings.push_back({a, b});
   }
 
-  sort(v.begin(), v.end(), compare);
+  sort(meetings.begin(), meetings.end(), compare);
 
-  int end = 0;
+  int endTime = 0;
   for (int i = 0; i < N; i++) {
-    if (end > v[i].first) continue;
-    end = v[i].second;
+    if (endTime > meetings[i].first) continue;
+    endTime = meetings[i].second;
     result++;
   }
 
