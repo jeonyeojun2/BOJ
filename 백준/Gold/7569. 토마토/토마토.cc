@@ -35,6 +35,7 @@ int main() {
 
   cin >> M >> N >> H;
 
+  // 입력 받기
   for (int h = 0; h < H; h++) {
     for (int n = 0; n < N; n++) {
       for (int m = 0; m < M; m++) {
@@ -46,6 +47,7 @@ int main() {
     }
   }
 
+  // bfs
   while (!q.empty()) {
     int ch = get<0>(q.front());
     int cn = get<1>(q.front());
@@ -67,6 +69,7 @@ int main() {
     }
   }
 
+  // 결과
   int max_days = 0;
   for (int h = 0; h < H; h++) {
     for (int n = 0; n < N; n++) {
