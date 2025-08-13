@@ -19,7 +19,7 @@
 #include <vector>
 using namespace std;
 
-bool isGrouped(const string &word) {
+bool isGrouped(const string& word) {
   bool visited[26] = {false};
   char prev = 0;
 
