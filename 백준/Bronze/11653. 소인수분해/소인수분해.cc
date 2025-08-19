@@ -19,34 +19,19 @@
 #include <vector>
 using namespace std;
 
-bool isPrime(int k) {  // 소수인가?
-  if (k < 2) return true;
-  for (int i = 2; i <= sqrt(k); i++) {
-    if (k % i == 0) return false;
-  }
-  return true;
-}
-
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int n, quotient;
+  int n;
   cin >> n;
 
-  while (n != 1) {
-    if (!isPrime(n)) {  // n이 소수가 아니면
-      for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-          cout << i << "\n";
-          quotient = i;
-          break;
-        }
-      }
-    } else {  // n이 소수라면
-      cout << n;
-      return 0;
+  for (int i = 2; i * i <= n; i++) {
+    while (n % i == 0) {
+      cout << i << "\n";
+      n /= i;
     }
-    n /= quotient;
   }
+
+  if (n > 1) cout << n;
 }
