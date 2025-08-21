@@ -23,11 +23,11 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  long long a1, a0, c, n0;
+  int a1, a0, c, n0;
   cin >> a1 >> a0 >> c >> n0;
 
-  long long f = a1 * n0 + a0;
-  long long g = c * n0;
+  int f = a1 * n0 + a0;
+  int g = c * n0;
 
   if (a1 <= c && f <= g)
     cout << 1;
