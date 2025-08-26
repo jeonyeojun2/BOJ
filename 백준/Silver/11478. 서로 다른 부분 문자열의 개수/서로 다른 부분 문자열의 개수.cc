@@ -28,20 +28,17 @@ int main() {
 
   unordered_set<string> set;
 
-  int subStrNum = 0, result = 0, strSize = s.size();
-
-  for (int i = 1; i <= strSize; i++) subStrNum += i;
+  int result = 0, strSize = s.size();
 
   for (int i = 1; i <= strSize; i++) {
     for (int j = 0; i + j <= strSize; j++) {
       string subStr = s.substr(j, i);
-      if (set.find(subStr) != set.end()) {  // 중복된 원소가 있으면
-        result++;
-      } else { // 없으면
+      if (set.find(subStr) == set.end()) {  // 중복된 원소가 없으면
         set.insert(subStr);
+        result++;
       }
     }
   }
 
-  cout << subStrNum - result;
+  cout << result;
 }
